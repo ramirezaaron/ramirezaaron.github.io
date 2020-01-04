@@ -3,6 +3,8 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Link } from "gatsby"
+// How to add font packages: https://www.bricolage.io/typefaces-easiest-way-to-self-host-fonts/
+require("typeface-aleo") 
 
 const IndexPage = () => (
   <Layout>
