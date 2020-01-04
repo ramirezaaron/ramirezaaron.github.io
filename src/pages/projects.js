@@ -2,15 +2,163 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { Link } from "gatsby"
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
+
+const projectList = [
+  {
+    name: "Electronic Voting System", 
+    techs: "ASP.NET MVC, Entity Framework, MySQL, SignalR, HTML/CSS/JavaScript, DevExtreme, IIS Server", 
+    tasks: [
+      "Database optimization in order to minimize response delays and server load", 
+      "New functionalities, improving existing API", 
+      "Bug fixing and code optimization", 
+      "Update and create data dashboards"
+    ], 
+    description: "Used for voting inside Congress sessions, handling 25-40 concurrent users with Android devices. Now, operating in three States in México."
+  }, 
+  {
+    name: "Software for ATM machine", 
+    techs: "WPF, C# (Backgound Workers), SQLite, HTTP Auth", 
+    tasks: [
+      "Register payments on remote site", 
+      "Show current and past balance account (always updated :)", 
+      "Store locally the transactions so in case of internet interruptions this could be synced up", 
+      "Screen saver always updated using images previously loaded via FTP", 
+      "User login via custom on-screen keyboard or codebar reading"
+    ], 
+    description: "Process, register and sync payments with an external accountancy system. It affects users' balance on real time."
+  }, 
+  {
+    name: "Accountancy system",
+    techs: "CodeIgniter (PHP), jQuery/CSS, API RESTful, MySQL, Apache Server",
+    tasks: [
+      "Site creation from scratch", 
+      "Database views creation", 
+      "CRUD operations", 
+      "User and password management"
+    ], 
+    description: "<i>Back-end</i> for ATM machine software. It allows to an admin user create, cancel, process and update users' through payments."
+  }, 
+  {
+    name: "Interactive Map", 
+    url: "http://plafomix.qbit.mx/es/modulo-interactivo", 
+    techs: "Drupal, Google Maps, KML polygons, jQuery/CSS, Apache Server", 
+    tasks: [
+      "Delimite polygons on KML files", 
+      "Custom markers on Google Maps", 
+      "Update map based on filters", 
+      "Translation between spanish and english", 
+      "Custom module development according to Drupal spec"
+    ], 
+    description: "Using custom Drupal entities, this module take the coordinates and shows it on the map. It has some filters. "
+  }, 
+  {
+    name: "Clinical History", 
+    techs: "ASP.NET MVC, MS SQL", 
+    tasks: [
+      "Parallel processing focused on reduce HTTP responses and dead browser", 
+      "Develop new functionalities", 
+      "Backups", 
+      "Import/Export data from Excel files"
+    ], 
+    description: "Management of medical data of users. Doctors update diagnosis and prescribe drugs so the patients can see their clinical status."
+  }, 
+  {
+    name: "Headless WordPress", 
+    techs: "WordPress", 
+    tasks: [
+      "Develop new API endpoints", 
+      "Customize WordPress according our needs"
+    ], 
+    description: "The main goal is to have a separate back-end (WordPress) and a front-end (written in React) for a news site."
+  }, 
+  {
+    name: "Ventro", 
+    url: "http://www.ventro.com.mx/", 
+    techs: "Java (Vaadin), MySQL, RESTful API", 
+    tasks: [
+      "Develop new functionalities", 
+      "Create and update reports with Jasper", 
+      "Create database views"
+    ], 
+    description: "Used for residential management, focused on incident report, rent payments, access and log control. "
+  }/*, 
+  {
+    name: "", 
+    techs: "", 
+    tasks: [""], 
+    description: ""
+  }, 
+  {
+    name: "", 
+    techs: "", 
+    tasks: [""], 
+    description: ""
+  }*/
+]
+
+function getTdTasks(tasks){
+  const t = tasks.map((task, index) => {
+    return <ul key={index}>
+      <li>{task}</li>
+    </ul>
+  })
+
+  return t; 
+}
+
+var i = 1
+const rows = projectList.map((p, index) => {
+  var url = p.url 
+
+  return <Tr key={index}>
+      <Td>{i++}</Td>
+      <Td>{ url == "" ? p.name : <a href={url}>{p.name}</a>}</Td>
+      <Td>{p.techs}</Td>
+      <Td>
+        <ul key={index * i}>
+          {getTdTasks(p.tasks)}
+        </ul>
+      </Td>
+      <Td>
+        <span dangerouslySetInnerHTML={{__html: p.description}} />
+      </Td> 
+    </Tr>
+})
 
 const Projects = () => (
   <Layout>
     <SEO title="Projects" />
     <h1>Projects</h1>
 
-    <i>
-      Coming soon...
-    </i>
+    <p>
+      This is a brief list of the main projects where I've worked. 
+      Due to privacy concerns, I can't make public all of this.
+      But, if you need more info about one of this, feel free to <Link to="contact">contact me</Link> :)
+    </p>
+
+    <p>
+      Note: for all of this items listed, I've done update and continuous integration on test and production environment.
+      It includes code, database and files updating.  
+    </p>
+
+    <Table>
+      <Thead>
+        <Tr>
+          <Th>#</Th>
+          <Th>Project</Th>
+          <Th>Technologies</Th>
+          <Th>Tasks completed</Th>
+          <Th>Description</Th>
+        </Tr>
+      </Thead>
+
+      <Tbody>
+        { rows }
+      </Tbody>
+    </Table>
   </Layout>
 )
 
