@@ -32,7 +32,7 @@ const projectList = [
   }, 
   {
     name: "Accountancy system",
-    techs: "CodeIgniter (PHP), jQuery/CSS, API RESTful, MySQL, Apache Server",
+    techs: "CodeIgniter (PHP), jQuery/CSS, RESTful API, MySQL, Apache Server",
     tasks: [
       "Site creation from scratch", 
       "Database views creation", 
@@ -83,15 +83,21 @@ const projectList = [
       "Create and update reports with Jasper", 
       "Create database views"
     ], 
-    description: "Used for residential management, focused on incident report, rent payments, access and log control. "
-  }/*, 
-  {
-    name: "", 
-    techs: "", 
-    tasks: [""], 
-    description: ""
+    description: "Used for residential management, focused on incident report, rent payments and access control. "
   }, 
   {
+    name: "MediaWiki update",
+    url: "https://dhial.org/diccionario/index.php/P%C3%A1gina_Principal",  
+    techs: "MediaWiki, MySQL, RESTful API, JavaScript", 
+    tasks: [
+      "Upgrade from version 1.15 to 1.33", 
+      "Upgrade existing extensions in order to work according to version 1.33", 
+      "Improve UI and functionality", 
+      "Develop API endpoints"
+    ], 
+    description: "We needed to upgrade the MediaWiki core. Some custom extensions didn't work with version 1.33, so we update them."
+  }, 
+  /*{
     name: "", 
     techs: "", 
     tasks: [""], 
@@ -115,7 +121,7 @@ const rows = projectList.map((p, index) => {
 
   return <Tr key={index}>
       <Td>{i++}</Td>
-      <Td>{ url == "" ? p.name : <a href={url}>{p.name}</a>}</Td>
+      <Td>{ url === "" ? p.name : <a href={url}>{p.name}</a>}</Td>
       <Td>{p.techs}</Td>
       <Td>
         <ul key={index * i}>
@@ -134,14 +140,14 @@ const Projects = () => (
     <h1>Projects</h1>
 
     <p>
-      This is a brief list of the main projects where I've worked. 
+      Here is a brief list of the main projects where I've worked. 
       Due to privacy concerns, I can't make public all of this.
-      But, if you need more info about one of this, feel free to <Link to="contact">contact me</Link> :)
+      But, if you need more info about one, feel free to <Link to="contact">contact me</Link> :)
     </p>
 
     <p>
-      Note: for all of this items listed, I've done update and continuous integration on test and production environment.
-      It includes code, database and files updating.  
+      Note: for all of the items listed, I've done update and continuous integration on test and production environment.
+      It includes code, database and server configuration. 
     </p>
 
     <Table>
@@ -150,7 +156,7 @@ const Projects = () => (
           <Th>#</Th>
           <Th>Project</Th>
           <Th>Technologies</Th>
-          <Th>Tasks completed</Th>
+          <Th>Tasks</Th>
           <Th>Description</Th>
         </Tr>
       </Thead>

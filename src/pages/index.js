@@ -23,7 +23,7 @@ const IndexPage = () => (
     </p>
 
     <p>
-      You can find <a href="https://twitter.com/ramirezaaron_" target="_blank">me</a> on Twitter. 
+      You can find <a href="https://twitter.com/ramirezaaron_" target="_blank" rel="noopener noreferrer">me</a> on Twitter. 
       Also, via <a href="mailto:aaron.rc24@gmail.com" target="_top">e-mail</a>: aaron[dot]rc24[at]gmail[dot]com
     </p>
 

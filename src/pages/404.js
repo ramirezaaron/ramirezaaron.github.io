@@ -5,10 +5,10 @@ import SEO from "../components/seo"
 function getImgCat(url){
   if(url !== "")
     return <figure>
-        <img src={url} width="350" alt="A random cat picture" />
+        <img src={url} width="350" alt="A random cat" />
         <figcaption>
           A random cat picture from <a href="https://aws.random.cat/">random.cat</a>
-        </figcaption>
+        </figcaption>0
       </figure>
 }
 
