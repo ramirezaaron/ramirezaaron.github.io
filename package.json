@@ -20,6 +20,7 @@
     "react-helmet": "^5.2.1",
     "react-super-responsive-table": "^5.1.1",
     "react-typography": "^0.16.19",
+    "typeface-aleo": "0.0.69",
     "typography": "^0.16.19"
   },
   "devDependencies": {
