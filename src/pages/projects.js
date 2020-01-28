@@ -77,7 +77,7 @@ const projectList = [
   {
     name: "Ventro", 
     url: "http://www.ventro.com.mx/", 
-    techs: "Java (Vaadin), MySQL, RESTful API", 
+    techs: "Java (Vaadin), MySQL, RESTful API, JPA", 
     tasks: [
       "Develop new functionalities", 
       "Create and update reports with Jasper", 
@@ -93,7 +93,8 @@ const projectList = [
       "Upgrade from version 1.15 to 1.33", 
       "Upgrade existing extensions in order to work according to version 1.33", 
       "Improve UI and functionality", 
-      "Develop API endpoints"
+      "Develop API endpoints", 
+      "Create and setting up MediaWiki bot for running massive update tasks"
     ], 
     description: "We needed to upgrade the MediaWiki core. Some custom extensions didn't work with version 1.33, so we update them."
   }, 
@@ -124,7 +125,7 @@ const rows = projectList.map((p, index) => {
       <Td>{ url === "" ? p.name : <a href={url}>{p.name}</a>}</Td>
       <Td>{p.techs}</Td>
       <Td>
-        <ul key={index * i}>
+        <ul key={index * i} style={{marginLeft: 0}}>
           {getTdTasks(p.tasks)}
         </ul>
       </Td>
