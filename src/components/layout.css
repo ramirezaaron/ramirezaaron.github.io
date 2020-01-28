@@ -679,6 +679,10 @@ pre tt:after {
   font-size: 1.15em;
 }
 
+.bm-menu-wrap, .bm-overlay{
+  top: 5em; 
+}
+
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
   fill: #373a47;
@@ -701,4 +705,7 @@ pre tt:after {
     left: 10px;
     top: 10px;
   }
+  .bm-menu-wrap, .bm-overlay{
+    top: 8em; 
+  } 
 }
