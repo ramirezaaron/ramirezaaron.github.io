@@ -125,7 +125,7 @@ const rows = projectList.map((p, index) => {
       <Td><div className="fix-align">{ url === "" ? p.name : <a href={url}>{p.name}</a>}</div></Td>
       <Td><div className="fix-align">{p.techs}</div></Td>
       <Td className="td-tasks">
-        <ul key={index * i} className="fix-align">
+        <ul key={index * i} className="fix-align"> 
           {getTdTasks(p.tasks)}
         </ul>
       </Td>
