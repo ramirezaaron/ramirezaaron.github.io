@@ -121,16 +121,16 @@ const rows = projectList.map((p, index) => {
   var url = p.url 
 
   return <Tr key={index}>
-      <Td>{i++}</Td>
-      <Td>{ url === "" ? p.name : <a href={url}>{p.name}</a>}</Td>
-      <Td>{p.techs}</Td>
-      <Td>
-        <ul key={index * i} style={{marginLeft: 0}}>
+      <Td style={{textAlign:"center"}}>{i++}</Td>
+      <Td><div className="fix-align">{ url === "" ? p.name : <a href={url}>{p.name}</a>}</div></Td>
+      <Td><div className="fix-align">{p.techs}</div></Td>
+      <Td className="td-tasks">
+        <ul key={index * i} className="fix-align">
           {getTdTasks(p.tasks)}
         </ul>
       </Td>
       <Td>
-        <span dangerouslySetInnerHTML={{__html: p.description}} />
+        <div className="fix-align"><span dangerouslySetInnerHTML={{__html: p.description}} /></div>
       </Td> 
     </Tr>
 })
